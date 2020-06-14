@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_ultimate/Prince/ListModal.dart';
+import 'file:///C:/Users/princ/AndroidStudioProjects/Flutter-Gallery-Ultimate/lib/ListModal.dart';
 
 class CustomAppbar extends StatefulWidget {
   @override
