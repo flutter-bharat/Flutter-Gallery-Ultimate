@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_ultimate/Prince/CustomAlert.dart';
-import 'package:flutter_gallery_ultimate/Prince/CustomDrawer.dart';
-import 'package:flutter_gallery_ultimate/Prince/customAppBar.dart';
-import 'package:flutter_gallery_ultimate/Prince/customList.dart';
-import 'package:flutter_gallery_ultimate/Prince/customTabbar.dart';
-import 'package:flutter_gallery_ultimate/Prince/httpreq.dart';
+import 'package:flutter_gallery_ultimate/CustomAlert.dart';
+import 'package:flutter_gallery_ultimate/CustomBottomNavigation.dart';
+import 'package:flutter_gallery_ultimate/CustomCard.dart';
+import 'package:flutter_gallery_ultimate/CustomDrawer.dart';
+import 'package:flutter_gallery_ultimate/CustomScrollViewFile.dart';
+import 'package:flutter_gallery_ultimate/CustomSnackBar.dart';
+import 'package:flutter_gallery_ultimate/customAppBar.dart';
+import 'package:flutter_gallery_ultimate/CustomList.dart';
+import 'package:flutter_gallery_ultimate/CustomTabbar.dart';
+import 'package:flutter_gallery_ultimate/httpreq.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -47,6 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> HttpScreen())), child: Text('HTTP')),
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAlert())), child: Text('Alert')),
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomList())), child: Text('CustomList')),
+            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomSnackBar())), child: Text('CustomSnackbar')),
+            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomBottomNavigation())), child: Text('Bottom Navigation')),
+            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomCard())), child: Text('Custom Card')),
+            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomScrollViewFile())), child: Text('Custom Scroll View')),
 
           ],
         ),
