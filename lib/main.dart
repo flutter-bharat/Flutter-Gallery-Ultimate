@@ -5,6 +5,10 @@ import 'package:flutter_gallery_ultimate/Prince/customAppBar.dart';
 import 'package:flutter_gallery_ultimate/Prince/customList.dart';
 import 'package:flutter_gallery_ultimate/Prince/customTabbar.dart';
 import 'package:flutter_gallery_ultimate/Prince/httpreq.dart';
+import 'package:flutter_gallery_ultimate/Ruchin/bottomnavigationbar.dart';
+import 'package:flutter_gallery_ultimate/Ruchin/pageview.dart';
+import 'package:flutter_gallery_ultimate/Ruchin/route.dart';
+import 'package:flutter_gallery_ultimate/Ruchin/snackbar.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,8 +51,11 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> HttpScreen())), child: Text('HTTP')),
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAlert())), child: Text('Alert')),
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomList())), child: Text('CustomList')),
-
-          ],
+            FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationbar())), child: Text('BottomNavigationBar')),
+            FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => pageView())), child: Text('PageView')),
+            FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => FirstScreen())), child: Text('PageRoute')),
+            FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Snackbar())), child: Text('SnackBar')),
+            ],
         ),
       ),
     );
