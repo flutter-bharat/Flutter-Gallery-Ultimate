@@ -5,12 +5,12 @@ import 'package:flutter_gallery_ultimate/Prince/customAppBar.dart';
 import 'package:flutter_gallery_ultimate/Prince/customList.dart';
 import 'package:flutter_gallery_ultimate/Prince/customTabbar.dart';
 import 'package:flutter_gallery_ultimate/Prince/httpreq.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/bottomnavigationbar.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/bottomsheet.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/expansionpannel.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/pageview.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/route.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/snackbar.dart';
+import 'package:flutter_gallery_ultimate/bottomnavigationbar.dart';
+import 'package:flutter_gallery_ultimate/bottomsheet.dart';
+import 'package:flutter_gallery_ultimate/expansionpannel.dart';
+import 'package:flutter_gallery_ultimate/pageview.dart';
+import 'package:flutter_gallery_ultimate/route.dart';
+import 'package:flutter_gallery_ultimate/snackbar.dart';
 
 void main() {
   runApp(MyApp());
