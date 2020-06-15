@@ -15,6 +15,7 @@ import 'package:flutter_gallery_ultimate/customAppBar.dart';
 import 'package:flutter_gallery_ultimate/CustomList.dart';
 import 'package:flutter_gallery_ultimate/CustomTabbar.dart';
 import 'package:flutter_gallery_ultimate/httpreq.dart';
+import 'package:flutter_gallery_ultimate/stepper.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,20 +49,29 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Flutter Gallery'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAppbar())), child: Text('Appbar ')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomTabbar())), child: Text('Tab bar ')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomerDrawer())), child: Text('Drawer ')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> HttpScreen())), child: Text('HTTP')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAlert())), child: Text('Alert')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomList())), child: Text('CustomList')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomSnackBar())), child: Text('CustomSnackbar')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomBottomNavigation())), child: Text('Bottom Navigation')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomCard())), child: Text('Custom Card')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomScrollViewFile())), child: Text('Custom Scroll View')),
 
+        child: ListView(
+              children: <Widget>[ Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAppbar())), child: Text('Appbar ')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomTabbar())), child: Text('Tab bar ')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomerDrawer())), child: Text('Drawer ')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> HttpScreen())), child: Text('HTTP')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAlert())), child: Text('Alert')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomList())), child: Text('CustomList')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomSnackBar())), child: Text('CustomSnackbar')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomBottomNavigation())), child: Text('Bottom Navigation')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomCard())), child: Text('Custom Card')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavigationbar())), child: Text('BottomeNavigationBar')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ExpansionPannelWidget())), child: Text('ExpansionPannel')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> pageView())), child: Text('PageView')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FirstScreen())), child: Text('Route')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomSheetWidget())), child: Text('BottomeSheet')),            
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> StepperWidget())), child: Text('Stepper')),            
+
+            ],
+          ),
           ],
         ),
       ),
