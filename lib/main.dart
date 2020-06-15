@@ -6,8 +6,6 @@ import 'package:flutter_gallery_ultimate/Prince/customList.dart';
 import 'package:flutter_gallery_ultimate/Prince/customTabbar.dart';
 import 'package:flutter_gallery_ultimate/Prince/httpreq.dart';
 import 'package:flutter_gallery_ultimate/Ruchin/bottomnavigationbar.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/bottomsheet.dart';
-import 'package:flutter_gallery_ultimate/Ruchin/expansionpannel.dart';
 import 'package:flutter_gallery_ultimate/Ruchin/pageview.dart';
 import 'package:flutter_gallery_ultimate/Ruchin/route.dart';
 import 'package:flutter_gallery_ultimate/Ruchin/snackbar.dart';
@@ -47,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAppbar())), child: Text('Appbar ')),
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomTabbar())), child: Text('Tab bar ')),
             FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomerDrawer())), child: Text('Drawer ')),
@@ -58,9 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => pageView())), child: Text('PageView')),
             FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => FirstScreen())), child: Text('PageRoute')),
             FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Snackbar())), child: Text('SnackBar')),
-            FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ExpansionPannelWidget())), child: Text('ExpansionPannel')),
-            FlatButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => BottomSheetWidget())), child: Text('BottomSheet')),
-             
             ],
         ),
       ),
