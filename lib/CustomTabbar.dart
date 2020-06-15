@@ -13,7 +13,7 @@ class _CustomTabbarState extends State<CustomTabbar>
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(length: 4 , vsync: this);
+    tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -38,23 +38,23 @@ class _CustomTabbarState extends State<CustomTabbar>
             ),
           ],
         ),
-
       ),
-      body: TabBarView(children: [
-       Container(
-         color: Colors.red,
-       ),Container(
-          color: Colors.green,
-        ),
-        Container(
-          color: Colors.yellow,
-        ),
-        Container(
-          color: Colors.pink,
-        ),
-      ],
+      body: TabBarView(
+        children: [
+          Container(
+            color: Colors.red,
+          ),
+          Container(
+            color: Colors.green,
+          ),
+          Container(
+            color: Colors.yellow,
+          ),
+          Container(
+            color: Colors.pink,
+          ),
+        ],
         controller: tabController,
-
       ),
       drawer: Drawer(),
     );
