@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery_ultimate/bottomnavigationbar.dart';
 import 'package:flutter_gallery_ultimate/bottomsheet.dart';
+import 'package:flutter_gallery_ultimate/datepicker.dart';
 import 'package:flutter_gallery_ultimate/expansionpannel.dart';
+import 'package:flutter_gallery_ultimate/fadeinimage.dart';
+import 'package:flutter_gallery_ultimate/flow.dart';
 import 'package:flutter_gallery_ultimate/pageview.dart';
 import 'package:flutter_gallery_ultimate/route.dart';
+import 'package:flutter_gallery_ultimate/slider.dart';
 import 'package:flutter_gallery_ultimate/snackbar.dart';
 import 'package:flutter_gallery_ultimate/CustomAlert.dart';
 import 'package:flutter_gallery_ultimate/CustomBottomNavigation.dart';
@@ -69,6 +73,12 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FirstScreen())), child: Text('Route')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomSheetWidget())), child: Text('BottomeSheet')),            
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> StepperWidget())), child: Text('Stepper')),            
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> DatePickerWidget())), child: Text('DatePicker')),            
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> SliderWidget())), child: Text('Slider')),   
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FadeInImageWidget())), child: Text('FadeInImage')),     
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FlowWidget())), child: Text('Flow')),            
+
+
 
             ],
           ),
