@@ -12,9 +12,18 @@ import 'package:flutter_gallery_ultimate/ListModal.dart';
 import 'package:flutter_gallery_ultimate/ListModalForHomeScreen.dart';
 import 'package:flutter_gallery_ultimate/bottomnavigationbar.dart';
 import 'package:flutter_gallery_ultimate/bottomsheet.dart';
+import 'package:flutter_gallery_ultimate/column.dart';
+import 'package:flutter_gallery_ultimate/datepicker.dart';
+import 'package:flutter_gallery_ultimate/divider.dart';
 import 'package:flutter_gallery_ultimate/expansionpannel.dart';
+import 'package:flutter_gallery_ultimate/fadeinimage.dart';
+import 'package:flutter_gallery_ultimate/flow.dart';
+import 'package:flutter_gallery_ultimate/gridview.dart';
 import 'package:flutter_gallery_ultimate/pageview.dart';
 import 'package:flutter_gallery_ultimate/route.dart';
+import 'package:flutter_gallery_ultimate/row.dart';
+import 'package:flutter_gallery_ultimate/slelectedtext.dart';
+import 'package:flutter_gallery_ultimate/slider.dart';
 import 'package:flutter_gallery_ultimate/snackbar.dart';
 import 'package:flutter_gallery_ultimate/CustomAlert.dart';
 import 'package:flutter_gallery_ultimate/CustomBottomNavigation.dart';
@@ -33,6 +42,8 @@ import 'package:flutter_gallery_ultimate/CustomList.dart';
 import 'package:flutter_gallery_ultimate/CustomTabbar.dart';
 import 'package:flutter_gallery_ultimate/httpreq.dart';
 import 'package:flutter_gallery_ultimate/stepper.dart';
+import 'package:flutter_gallery_ultimate/textfield.dart';
+import 'package:flutter_gallery_ultimate/tooltip.dart';
 
 import 'CustomFlatButton.dart';
 
@@ -81,6 +92,24 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomSnackBar())), child: Text('CustomSnackbar')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomBottomNavigation())), child: Text('Bottom Navigation')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomCard())), child: Text('Custom Card')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavigationbar())), child: Text('BottomeNavigationBar')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ExpansionPannelWidget())), child: Text('ExpansionPannel')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> pageView())), child: Text('PageView')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FirstScreen())), child: Text('Route')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomSheetWidget())), child: Text('BottomeSheet')),            
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> StepperWidget())), child: Text('Stepper')),            
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> DatePickerWidget())), child: Text('DatePicker')),            
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> SliderWidget())), child: Text('Slider')),   
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FadeInImageWidget())), child: Text('FadeInImage')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FlowWidget())), child: Text('Flow')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ColumnWidget())), child: Text('Column')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> RowWidget())), child: Text('Row')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> DividerWidget())), child: Text('Divider')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> GridViewWidget())), child: Text('GridView')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ToolTipWidget())), child: Text('Tooltip')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> SelectedTextWidget())), child: Text('Selected Text')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> TextFieldWidget())), child: Text('TextField')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FlowWidget())), child: Text('Flow')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomScrollViewFile())), child: Text('Custom Scroll View')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomStepper())), child: Text('Custom Stepper')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomHero())), child: Text('Custom Hero')),
@@ -88,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomClipRRect())), child: Text('Custom ClipRect')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomRichText())), child: Text('Custom RichText')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomSpacer())), child: Text('Custom Spacer')),
+
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomFAB())), child: Text('Custom FAB')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomFlatButton())), child: Text('Custom Flat Button')),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomMaterialButton())), child: Text('Custom Material Button')),
@@ -103,7 +133,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ],
           ),
-
         ),
       ),
     );
