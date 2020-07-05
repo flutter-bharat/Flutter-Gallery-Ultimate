@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ListModal extends StatefulWidget {
+class ListModal1 extends StatefulWidget {
   @override
-  _ListModalState createState() => _ListModalState();
+  _ListModal1State createState() => _ListModal1State();
 }
 
-class _ListModalState extends State<ListModal> {
+class _ListModal1State extends State<ListModal1> {
   @override
   Widget build(BuildContext context) {
     return Container(
