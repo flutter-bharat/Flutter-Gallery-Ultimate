@@ -32,7 +32,6 @@ class _ListModalState extends State<ListModal> {
               ),
             ),
           ),
-
         ],
       ),
     );
