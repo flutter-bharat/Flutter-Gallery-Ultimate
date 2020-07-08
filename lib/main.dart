@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery_ultimate/Alert/alertoutput.dart';
+import 'package:flutter_gallery_ultimate/Align/alignoutput.dart';
 import 'package:flutter_gallery_ultimate/AppBar/appbaroutput.dart';
 import 'package:flutter_gallery_ultimate/BottomNavigationBar/bottomnavigationbaroutput.dart';
 import 'package:flutter_gallery_ultimate/BottomSheet/bottomsheetoutput.dart';
@@ -7,21 +8,29 @@ import 'package:flutter_gallery_ultimate/Card/cardoutput.dart';
 import 'package:flutter_gallery_ultimate/ClipReact/clipreactoutput.dart';
 import 'package:flutter_gallery_ultimate/Column/columnoutput.dart';
 import 'package:flutter_gallery_ultimate/DatePicker/datepickeroutput.dart';
+import 'package:flutter_gallery_ultimate/Dismissible/dismissibleoutput.dart';
 import 'package:flutter_gallery_ultimate/Divider/divideroutput.dart';
 import 'package:flutter_gallery_ultimate/Drawer/divideroutput.dart';
 import 'package:flutter_gallery_ultimate/ExpansionPannel/divideroutput.dart';
 import 'package:flutter_gallery_ultimate/FadeInImage/divideroutput.dart';
+import 'package:flutter_gallery_ultimate/FlatButton/flatbuttonoutput.dart';
+import 'package:flutter_gallery_ultimate/FloatActionButton/floatactionbuttonoutput.dart';
 import 'package:flutter_gallery_ultimate/Flow/flowoutput.dart';
 import 'package:flutter_gallery_ultimate/GridView/gridviewoutput.dart';
 import 'package:flutter_gallery_ultimate/Hero/herooutput.dart';
 import 'package:flutter_gallery_ultimate/HeroAnimationScreen/heroanimationoutput.dart';
 import 'package:flutter_gallery_ultimate/HttpRequest/httpreqoutput.dart';
+import 'package:flutter_gallery_ultimate/IconButton/iconbuttonoutput.dart';
 import 'package:flutter_gallery_ultimate/List/listoutput.dart';
+import 'package:flutter_gallery_ultimate/ListMoadalHomeScreen/listmodalhomeoutput.dart';
 import 'package:flutter_gallery_ultimate/ListModal/listmodaloutput.dart';
+import 'package:flutter_gallery_ultimate/MaterialButton/materialbuttonoutput.dart';
+import 'package:flutter_gallery_ultimate/Opacity/opacityoutput.dart';
 import 'package:flutter_gallery_ultimate/PageView/pageviewoutput.dart';
 import 'package:flutter_gallery_ultimate/RichText/richtextoutput.dart';
 import 'package:flutter_gallery_ultimate/Route/routeoutput.dart';
 import 'package:flutter_gallery_ultimate/Row/rowoutput.dart';
+import 'package:flutter_gallery_ultimate/SafeArea/safeareaoutput.dart';
 import 'package:flutter_gallery_ultimate/ScrollView/scrollviewoutput.dart';
 import 'package:flutter_gallery_ultimate/SelectedText/selectedtextoutput.dart';
 import 'package:flutter_gallery_ultimate/Slider/slideroutput.dart';
@@ -32,6 +41,8 @@ import 'package:flutter_gallery_ultimate/Stepper/flowoutput.dart';
 import 'package:flutter_gallery_ultimate/TabBar/tabbaroutput.dart';
 import 'package:flutter_gallery_ultimate/TextField/textfieldoutput.dart';
 import 'package:flutter_gallery_ultimate/Tooltip/tooltipoutput.dart';
+import 'package:flutter_gallery_ultimate/Wrap/wrapoutput.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -102,6 +113,17 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> TabBarOutput())), child: Text("TabBar")),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> TextFieldOutput())), child: Text("TextField")),
               FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ToolTipOutput())), child: Text("ToolTip")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ListModalOutput())), child: Text('Custom List Modal old')),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> AlignOutput())), child: Text("Align")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> DismissibleOutput())), child: Text("Dismissible")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FlatButtonOutput())), child: Text("FlatButton")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> FloatActionButtonOutput())), child: Text("FloatActionButton")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> IconButtonOutput())), child: Text("IconButton")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> ListMadalHomeOutput())), child: Text("ListMadalHomeScreen")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> MaterialButtonOutput())), child: Text("MaterialButton")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> OpacityOutput())), child: Text("Opacity")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> SafeAreaOutput())), child: Text("SafeArea")),
+              FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> WrapOutput())), child: Text("Wrap")),
             ],
           ),
         ),

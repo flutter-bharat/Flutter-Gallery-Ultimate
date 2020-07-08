@@ -19,7 +19,7 @@ class _ListModalState extends State<ListModalOutput> {
         scrollDirection: Axis.horizontal,
         children: [
           ListModalDescription(),
-          ListModal(),
+          ListModal1(),
           ListModalCode(),
         ],
       ),
