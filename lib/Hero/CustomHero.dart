@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_ultimate/CustomHeroAnimationScreen.dart';
+import 'file:///C:/Users/Ruchin/Git/Flutter-Gallery-Ultimate/lib/HeroAnimationScreen/CustomHeroAnimationScreen.dart';
 
 class CustomHero extends StatelessWidget {
   @override
