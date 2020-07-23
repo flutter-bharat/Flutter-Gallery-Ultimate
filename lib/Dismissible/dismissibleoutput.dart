@@ -10,11 +10,12 @@ class DismissibleOutput extends StatefulWidget {
 }
 
 class _DismissibleOutputState extends State<DismissibleOutput> {
+  PageController _controller  = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           DismissibleDescription(),
