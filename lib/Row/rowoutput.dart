@@ -11,10 +11,11 @@ class RowOutput extends StatefulWidget {
 
 class _RowOutputState extends State<RowOutput> {
   @override
+  PageController _controller  = PageController(initialPage: 1);
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           RowDescription(),
