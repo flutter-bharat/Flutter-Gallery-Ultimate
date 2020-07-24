@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Ruchin/Git/Flutter-Gallery-Ultimate/lib/HeroAnimationScreen/CustomHeroAnimationScreen.dart';
+//import 'HeroAnimationScreen/CustomHeroAnimationScreen.dart';
 
 class CustomHero extends StatelessWidget {
   @override
@@ -13,13 +13,13 @@ class CustomHero extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FlatButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomHeroAnimationScreen()));
-              },
-              child: Text('Show animation'),
-              color: Colors.blue,
-            ),
+//            FlatButton(
+//              onPressed: () {
+//                Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomHeroAnimationScreen()));
+//              },
+//              child: Text('Show animation'),
+//              color: Colors.blue,
+//            ),
             Hero(
               tag: 'hero',
               child: Container(
