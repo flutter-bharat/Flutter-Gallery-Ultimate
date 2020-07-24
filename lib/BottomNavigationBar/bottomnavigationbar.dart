@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationbar extends StatefulWidget {
+class CustomBottomNavigationbar extends StatefulWidget {
   @override
-  _BottomNavigationbarState createState() => _BottomNavigationbarState();
+  _CustomBottomNavigationbarState createState() => _CustomBottomNavigationbarState();
 }
 
-class _BottomNavigationbarState extends State<BottomNavigationbar> {
+class _CustomBottomNavigationbarState extends State<CustomBottomNavigationbar> {
 
   static const TextStyle textStyle = TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.grey);
 

@@ -19,7 +19,7 @@ class _BottomNavigationBarOutputState extends State<BottomNavigationBarOutput> {
         scrollDirection: Axis.horizontal,
         children: [
           BottomNavigationBarDescription(),
-          BottomNavigationbar(),
+          CustomBottomNavigationbar(),
           BottomNavigationBarCode(),
         ],
       ),
