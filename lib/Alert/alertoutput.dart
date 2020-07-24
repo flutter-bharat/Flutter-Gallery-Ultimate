@@ -10,11 +10,19 @@ class AlertOutput extends StatefulWidget {
 }
 
 class _AlertOutputState extends State<AlertOutput> {
+  PageController _controller  = PageController(initialPage: 1);
+
+
+//  void dispose() {
+//    _controller.dispose();
+//    super.dispose();
+//  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           AlertDescription(),

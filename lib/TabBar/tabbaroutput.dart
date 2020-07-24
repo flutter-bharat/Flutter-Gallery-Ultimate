@@ -10,11 +10,12 @@ class TabBarOutput extends StatefulWidget {
 }
 
 class _TabBarOutputState extends State<TabBarOutput> {
+  PageController _controller  = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           TabBarDescription(),

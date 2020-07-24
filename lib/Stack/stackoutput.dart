@@ -10,11 +10,12 @@ class StackOutput extends StatefulWidget {
 }
 
 class _StackOutputState extends State<StackOutput> {
+  PageController _controller  = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           StackDescription(),

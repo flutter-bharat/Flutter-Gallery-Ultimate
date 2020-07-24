@@ -9,11 +9,12 @@ class PageViewOutput extends StatefulWidget {
 }
 
 class _PageViewOutputState extends State<PageViewOutput> {
+  PageController _controller  = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           Description(),
