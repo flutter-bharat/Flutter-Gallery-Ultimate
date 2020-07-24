@@ -10,11 +10,12 @@ class GridViewOutput extends StatefulWidget {
 }
 
 class _GridViewOutputState extends State<GridViewOutput> {
+  PageController _controller  = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           GridViewDescription(),

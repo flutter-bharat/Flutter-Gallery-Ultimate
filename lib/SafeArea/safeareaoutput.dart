@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_ultimate/Flow/flow.dart';
 import 'package:flutter_gallery_ultimate/SafeArea/CustomSafeArea.dart';
 import 'package:flutter_gallery_ultimate/SafeArea/code.dart';
 import 'package:flutter_gallery_ultimate/SafeArea/description.dart';
@@ -12,10 +11,11 @@ class SafeAreaOutput extends StatefulWidget {
 
 class _SafeAreaOutputState extends State<SafeAreaOutput> {
   @override
+  PageController _controller  = PageController(initialPage: 1);
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           SafeAreaDescription(),

@@ -9,11 +9,12 @@ class ColumntOutput extends StatefulWidget {
 }
 
 class _ColumntOutputState extends State<ColumntOutput> {
+  PageController _controller  = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: PageController(),
+        controller: _controller,
         scrollDirection: Axis.horizontal,
         children: [
           ColumnDescription(),
