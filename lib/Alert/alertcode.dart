@@ -81,6 +81,7 @@ class CustomAlert extends StatelessWidget {
       appBar: AppBar(
         title: Text("Code"),
         centerTitle: true,
+        leading: Container(),
       ),
       body: ListView(
         children: [
