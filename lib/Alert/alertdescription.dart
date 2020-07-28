@@ -47,6 +47,7 @@ class AlertDescription extends StatelessWidget {
       appBar: AppBar(
         title: Text("Description"),
         centerTitle: true,
+        leading: Container(),
       ),
       body: ListView(
         children: [

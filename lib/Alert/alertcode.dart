@@ -56,6 +56,7 @@ class CustomAlert extends StatelessWidget {
     ),
       Container(
       child: HighlightView(
+
     code2 = '''
   @override
   Widget build(BuildContext context) {
@@ -79,8 +80,11 @@ class CustomAlert extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Code"),
+        title: Text("Code"
+        ),
         centerTitle: true,
+        leading: Container(),
+
       ),
       body: ListView(
         children: [
@@ -122,9 +126,8 @@ class CustomAlert extends StatelessWidget {
 
             // Specify text style
             textStyle: TextStyle(
-
               fontFamily: 'My awesome monospace font',
-              color: Colors.deepOrange,
+              color: Colors.blue,
               fontWeight: FontWeight.w600,
               fontSize: 17,
              // backgroundColor: Colors.yellow

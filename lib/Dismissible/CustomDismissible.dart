@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomDismissible extends StatelessWidget {
 
-  List<String> items= List<String>.generate(30, (index) => 'Item no$index');
+  List<String> items= List<String>.generate(6, (index) => 'Item no$index');
 
   @override
   Widget build(BuildContext context) {
