@@ -32,6 +32,7 @@ dependencies:
   transparent_image: ^1.0.0
   syntax_highlighter: ^0.1.1
   flutter_highlight: ^0.6.0
+  foldable_sidebar: ^1.0.0
 
 dev_dependencies:
   flutter_test:

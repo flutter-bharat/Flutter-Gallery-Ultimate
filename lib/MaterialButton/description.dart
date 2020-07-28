@@ -44,13 +44,6 @@ class MaterialButtonDescription extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20.0),
-                Container(
-                  height: 170,
-                  width:370,
-                  color: Colors.blue,
-                ),
-                SizedBox(height: 30.0),
                 Container(
                   //   padding: EdgeInsets.symmetric(horizontal: 50.0),
                     child: Text("Material Button",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold))),

@@ -184,6 +184,7 @@ class _CustomAlignState extends State<CustomAlign> {
       appBar: AppBar(
         title: Text("Code"),
         centerTitle: true,
+        leading: Container(),
       ),
       body: ListView(
         children: [
