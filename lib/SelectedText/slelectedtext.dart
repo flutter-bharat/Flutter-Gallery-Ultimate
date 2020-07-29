@@ -16,7 +16,7 @@ class SelectedTextWidget extends StatelessWidget {
            SelectableText(
              "Long Press Me, I am Selectable",
              textAlign: TextAlign.center,
-             style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),
+             style: TextStyle(fontSize: 16.0),
            ),
          ],
         ),

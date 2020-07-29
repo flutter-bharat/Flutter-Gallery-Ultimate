@@ -27,8 +27,8 @@ class _CustomAlignState extends State<CustomAlign> {
           Row(
             children: [
               Radio(
-                focusColor: Colors.red,
-                groupValue: groupValue,
+                //focusColor: Colors.red,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -42,8 +42,8 @@ class _CustomAlignState extends State<CustomAlign> {
           Row(
             children: [
               Radio(
-                focusColor: Colors.red,
-                groupValue: groupValue,
+           //     focusColor: Colors.red,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -57,8 +57,9 @@ class _CustomAlignState extends State<CustomAlign> {
           Row(
             children: [
               Radio(
+
                 focusColor: Colors.red,
-                groupValue: groupValue,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -73,7 +74,7 @@ class _CustomAlignState extends State<CustomAlign> {
             children: [
               Radio(
                 focusColor: Colors.red,
-                groupValue: groupValue,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -88,7 +89,7 @@ class _CustomAlignState extends State<CustomAlign> {
             children: [
               Radio(
                 focusColor: Colors.red,
-                groupValue: groupValue,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -103,7 +104,7 @@ class _CustomAlignState extends State<CustomAlign> {
             children: [
               Radio(
                 focusColor: Colors.red,
-                groupValue: groupValue,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -133,7 +134,7 @@ class _CustomAlignState extends State<CustomAlign> {
             children: [
               Radio(
                 focusColor: Colors.red,
-                groupValue: groupValue,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;
@@ -148,7 +149,7 @@ class _CustomAlignState extends State<CustomAlign> {
             children: [
               Radio(
                 focusColor: Colors.red,
-                groupValue: groupValue,
+                groupValue: alignVal,
                 onChanged: (val) {
                   setState(() {
                     alignVal = val;

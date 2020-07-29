@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
 
               color: Colors.grey),
           backgroundColor: Colors.blueGrey,
-          primarySwatch: Colors.blue),
+          primarySwatch: Colors.green),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

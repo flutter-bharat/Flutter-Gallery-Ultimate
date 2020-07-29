@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/googlecode.dart';
 
@@ -65,10 +66,7 @@ class _CustomScrollViewFileState extends State<CustomScrollViewFile> {
 
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Code"),
-        centerTitle: true,
-      ),
+     appBar: customizedAppBar("Code"),
       body: ListView(
         children: [
         HighlightView(

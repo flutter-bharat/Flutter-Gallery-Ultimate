@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/googlecode.dart';
-
+import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
 
 
 class AlertCode extends StatelessWidget {
@@ -78,11 +78,7 @@ class CustomAlert extends StatelessWidget {
 
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Code"),
-        centerTitle: true,
-        leading: Container(),
-      ),
+      appBar: customizedAppBar("Code"),
       body: ListView(
         children: [
         HighlightView(
