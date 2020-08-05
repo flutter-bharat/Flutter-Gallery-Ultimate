@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/googlecode.dart';
 
@@ -135,10 +136,8 @@ class FlowMenuDelegate extends FlowDelegate {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Description"),
-        centerTitle: true,
-      ),
+      appBar: customizedAppBar("Description"),
+
       body: ListView(
         children: [
           Padding(

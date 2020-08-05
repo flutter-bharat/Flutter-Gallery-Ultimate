@@ -20,26 +20,64 @@ class _CustomScrollViewFileState extends State<CustomScrollViewFile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 120,
-                child: Text('Hello'),
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.red,
+              ),
+              SizedBox(
+                height: 10,
               ),
               Container(
-                height: 120,
-                child: Text('Hello'),
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.teal,
               ),
-              Container(
-                height: 120,
-                child: Text('Hello'),
-              ),
-              Container(
-                height: 120,
-                child: Text('Hello'),
+              SizedBox(
+                height: 10,
               ),Container(
-                height: 120,
-                child: Text('Hello'),
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.orange,
+              ),
+              SizedBox(
+                height: 10,
               ),Container(
-                height: 120,
-                child: Text('Hello'),
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.green,
+              ),
+              SizedBox(
+                height: 10,
+              ),Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.pink,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.red,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.teal,
+              ),
+              SizedBox(
+                height: 10,
+              ),Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width*0.95,
+                color: Colors.orange,
+              ),
+              SizedBox(
+                height: 10,
               ),
             ],
           ),

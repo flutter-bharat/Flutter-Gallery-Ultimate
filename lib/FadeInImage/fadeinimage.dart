@@ -26,7 +26,7 @@ class _FadeInImageWidgetState extends State<FadeInImageWidget> {
               FadeInImage.memoryNetwork(
                  placeholder: kTransparentImage,
                  height: MediaQuery.of(context).size.height/3,
-                 fadeInDuration: Duration(seconds: 3),
+                 fadeInDuration: Duration(seconds: 2),
                  image: 'https://picsum.photos/250?image=9',
               ),   
             ],

@@ -8,7 +8,7 @@ class pageView extends StatefulWidget {
 class _pageViewState extends State<pageView> {
 
   bool isVertical = false;
-  static const TextStyle textStyle = TextStyle(fontSize: 20,fontWeight: FontWeight.bold);
+  static const TextStyle textStyle = TextStyle(fontSize: 16);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _pageViewState extends State<pageView> {
           Container(
             height: 400,
             width: double.infinity,
-            color: Colors.yellow,
+            color: Theme.of(context).primaryColor,
             child: PageView(
               controller: PageController(),
               scrollDirection: isVertical ? Axis.vertical : Axis.horizontal,

@@ -2,82 +2,73 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery_ultimate/about.dart';
 import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
+import 'package:foldable_sidebar/foldable_sidebar.dart';
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
           backgroundColor: Colors.blueGrey, primarySwatch: Colors.red),
-          appBarTheme: AppBarTheme(
-
-              color: Colors.grey),
-          backgroundColor: Colors.blueGrey,
-          primarySwatch: Colors.blue),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-      initialRoute: 'home',
-      routes: {
-        'home': (context) => MyHomePage(),
-      }
+      home: SplashScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: FlareActor(
+        'assets/Flutter Splash Animation.flr',
+        alignment: Alignment.center,
+        fit: BoxFit.contain,
+        animation: "FlutterSplashAnimation",
+        callback: (animationName) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              CupertinoPageRoute(
+                builder: (_) => Home(),
+              ),
+              (route) => false);
+        },
+      ),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  Home({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeState extends State<Home> {
   FSBStatus drawerStatus;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe4e3e3),
-      appBar: AppBar(
-
-        centerTitle: true,
-        leading: Container(),
-        backgroundColor: Colors.orange,
-        title: Text('Flutter Gallery'),
-      ),
-      body: ListView.builder(
-        itemCount: modelList.length,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-            padding: EdgeInsets.symmetric(vertical: 4),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
-                gradient: gradientList[index % gradientList.length]),
-            child: ListTile(
-              title: Text(
-                modelList[index].getTitle(),
-                style: TextStyle(fontFamily: 'Pacifico'),
-              ),
-              subtitle: Text(modelList[index].getDesc()),
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => modelList[index].getWidget())),
-              trailing: CircleAvatar(
-                maxRadius: 30,
-                backgroundColor: Colors.white,
-              ),
         backgroundColor: Color(0xffe4e3e3),
         appBar: AppBar(
+          elevation: 0.0,
           leading: IconButton(
               icon: Icon(Icons.menu),
               onPressed: () {
@@ -89,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               }),
           centerTitle: true,
           backgroundColor: Colors.orange,
-          title: Text('Flutter Gallery'),
+          title: Text("Let's Learn Flutter"),
         ),
         body: FoldableSidebarBuilder(
             status: drawerStatus,
@@ -108,11 +99,21 @@ class _MyHomePageState extends State<MyHomePage> {
               borderRadius: BorderRadius.circular(6),
               gradient: gradientList[index % gradientList.length]),
           child: ListTile(
-            title: Text(
-              modelList[index].getTitle(),
-              style: TextStyle(fontFamily: 'Pacifico'),
+            title: Padding(
+              padding: EdgeInsets.only(bottom: 12),
+              child: Text(
+                modelList[index].getTitle(),
+                style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    fontSize: 42,
+                    color: Colors.white54,
+                    fontWeight: FontWeight.w900),
+              ),
             ),
-            subtitle: Text(modelList[index].getDesc()),
+            subtitle: Text(
+              modelList[index].getDesc(),
+              style: TextStyle(color: Colors.white70, fontSize: 18),
+            ),
             onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -125,16 +126,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   drawerWidget() {
     return Container(
-      width: MediaQuery.of(context).size.width*0.6,
+      width: MediaQuery.of(context).size.width * 0.6,
       child: Drawer(
-
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.orange
-                ),
-                accountName: null, accountEmail: null),
+                    image: DecorationImage(
+                      image: AssetImage("assets/forDrawerHeader.png"),
+                      fit: BoxFit.contain,
+                    ),
+                    color: Colors.orange),
+                accountName: null,
+                accountEmail: null),
             ListTile(
               title: Text('Home'),
               leading: Icon(Icons.home),
@@ -142,23 +146,36 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: Text('Feedback'),
               leading: Icon(Icons.mail),
+              onTap: () {
+                launch(
+                    "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
+              },
             ),
             ListTile(
               title: Text('Rate Us'),
               leading: Icon(Icons.star),
+              onTap: () {
+                launch(
+                    "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
+              },
             ),
             ListTile(
               title: Text('Share'),
               leading: Icon(Icons.share),
+              onTap: () {
+                Share.share(
+                    'Hey Check Out This Flutter Learning Resource it includes flutter widgets code snippents along with there implementations https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate');
+              },
             ),
             Divider(),
             GestureDetector(
               child: ListTile(
-                title: Text('Team'),
+                title: Text('About & Collaborators'),
                 leading: Icon(Icons.supervisor_account),
               ),
-              onTap: (){
-                Navigator.push(context, CupertinoPageRoute(builder: (context) => AboutUs()));
+              onTap: () {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => AboutUs()));
               },
             ),
             Divider(),
