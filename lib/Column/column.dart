@@ -10,21 +10,46 @@ class _ColumnWidgetState extends State<ColumnWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Column"),
+        title: Text("Column"),
         centerTitle: true,
       ),
       body: Center(
-        child: Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("This is the column Widgit: Item 1",style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 20.0,color: Colors.red),),
-              SizedBox(height: 100.0),
-              Text("This is the column Widget: Item 2",style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 20.0,color: Colors.green)),
-              SizedBox(height: 100.0),
-              Text("This is the column Widget: Item 3",style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 20.0,color: Colors.blue)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.95,
+              color: Colors.red,
+              height: 100,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.95,
+              color: Colors.green,
+              height: 100,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.95,
+              color: Colors.orange,
+              height: 100,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.95,
+              color: Colors.lightBlue,
+              height: 100,
+            ),
+            SizedBox(
+              height: 20,
+            ),
           ],
-        ),
         ),
       ),
     );

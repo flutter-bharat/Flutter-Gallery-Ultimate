@@ -21,11 +21,10 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(_dateTime == null ? 'Nothing has been picked yet' : _dateTime.toUtc().toString(),
-            style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
+            style: TextStyle(fontSize: 20.0),),
             SizedBox(height: 30.0),
             RaisedButton(
-              color: Colors.red,
-              child: Text("Pick a date",style: TextStyle(fontSize: 18.0,color: Colors.white)),
+              child: Text("Pick a date",style: TextStyle(fontSize: 18.0)),
               onPressed: (){
                 showDatePicker(
                   context: context, 

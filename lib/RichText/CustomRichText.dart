@@ -13,17 +13,19 @@ class _CustomRichTextState extends State<CustomRichText> {
         title: Text('Custom RichText'),
       ),
       body: Center(
-        child: RichText(
-          text: TextSpan(
-            text: 'Hello ',
-            style: DefaultTextStyle.of(context).style,
-            children: <TextSpan>[
-              TextSpan(text: 'bold', style: TextStyle(fontWeight: FontWeight.bold)),
-              TextSpan(text: ' world!'),
-            ],
-          ),
-        )
-      ),
+          child: RichText(
+        text: TextSpan(
+          text: 'I am ',
+          style: TextStyle(fontSize: 18, color: Colors.blue),
+          children: <TextSpan>[
+            TextSpan(
+                text: 'Rich',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black)),
+            TextSpan(text: ' Text!', style: TextStyle(fontSize: 18)),
+          ],
+        ),
+      )),
     );
   }
 }

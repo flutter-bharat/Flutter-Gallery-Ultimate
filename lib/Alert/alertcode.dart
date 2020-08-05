@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/googlecode.dart';
-
-
+import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
 
 class AlertCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     var code;
     var code1;
     var code2;
-     Column(
+    Column(
       children: [
-        HighlightView(
-            code = '''            
+        HighlightView(code = '''            
  import 'package:flutter/material.dart';
 
 class CustomAlert extends StatelessWidget {
@@ -23,11 +20,9 @@ class CustomAlert extends StatelessWidget {
       barrierDismissible: false,
         context: context,
         builder: (context) {
-        '''
-    ),
-          Container(
-          child: HighlightView(
-          code1 = ''' 
+        '''),
+        Container(
+          child: HighlightView(code1 = ''' 
            return AlertDialog(
             title: Text(
               'This is a alert box example',
@@ -51,13 +46,10 @@ class CustomAlert extends StatelessWidget {
         });
   }
 ),
-          '''
-    ),
-    ),
-      Container(
-      child: HighlightView(
-
-    code2 = '''
+          '''),
+        ),
+        Container(
+          child: HighlightView(code2 = '''
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,43 +63,36 @@ class CustomAlert extends StatelessWidget {
     );
   }
 }   
-      '''
-      ),
-    ),
-    ],
+      '''),
+        ),
+      ],
     );
 
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Code"
-        ),
-        centerTitle: true,
-        leading: Container(),
-      ),
+      appBar: customizedAppBar("Code"),
       body: ListView(
         children: [
-        HighlightView(
-        // The original code to be highlighted
-        code,
+          HighlightView(
+            // The original code to be highlighted
+            code,
 
-        // Specify language
-        // It is recommended to give it a value for performance
-        language: 'dart',
+            // Specify language
+            // It is recommended to give it a value for performance
+            language: 'dart',
 
-        // Specify highlight theme
-        // All available themes are listed in `themes` folder
-          theme: googlecodeTheme   ,
+            // Specify highlight theme
+            // All available themes are listed in `themes` folder
+            theme: googlecodeTheme,
 
-        // Specify padding
-        padding: EdgeInsets.all(12),
+            // Specify padding
+            padding: EdgeInsets.all(12),
 
-        // Specify text style
-        textStyle: TextStyle(
-          fontFamily: 'My awesome monospace font',
-          fontSize: 16,
-        ),
-        ),
+            // Specify text style
+            textStyle: TextStyle(
+              fontFamily: 'My awesome monospace font',
+              fontSize: 16,
+            ),
+          ),
           HighlightView(
             // The original code to be highlighted
             code1,
@@ -118,7 +103,7 @@ class CustomAlert extends StatelessWidget {
 
             // Specify highlight theme
             // All available themes are listed in `themes` folder
-            theme: googlecodeTheme   ,
+            theme: googlecodeTheme,
 
             // Specify padding
             padding: EdgeInsets.all(12),
@@ -129,7 +114,7 @@ class CustomAlert extends StatelessWidget {
               color: Colors.blue,
               fontWeight: FontWeight.w600,
               fontSize: 17,
-             // backgroundColor: Colors.yellow
+              // backgroundColor: Colors.yellow
             ),
           ),
           HighlightView(
@@ -142,12 +127,10 @@ class CustomAlert extends StatelessWidget {
 
             // Specify highlight theme
             // All available themes are listed in `themes` folder
-            theme: googlecodeTheme   ,
+            theme: googlecodeTheme,
 
             // Specify padding
             padding: EdgeInsets.all(12),
-
-
 
             // Specify text style
             textStyle: TextStyle(

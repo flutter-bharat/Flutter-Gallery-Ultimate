@@ -16,10 +16,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            backgroundColor: Colors.blueGrey, primarySwatch: Colors.red),
-        home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          backgroundColor: Colors.blueGrey, primarySwatch: Colors.red),
+      home: SplashScreen(),
     );
   }
 }
@@ -36,18 +36,20 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white,
       body: FlareActor(
         'assets/Flutter Splash Animation.flr',
-          alignment:Alignment.center,
-          fit: BoxFit.contain,
-          animation: "FlutterSplashAnimation",
-          callback: (animationName) {
-            Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(
-              builder: (_) => Home(),
-            ), (route) => false);
-          },
+        alignment: Alignment.center,
+        fit: BoxFit.contain,
+        animation: "FlutterSplashAnimation",
+        callback: (animationName) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              CupertinoPageRoute(
+                builder: (_) => Home(),
+              ),
+              (route) => false);
+        },
       ),
     );
   }
-
 }
 
 class Home extends StatefulWidget {
@@ -101,12 +103,16 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.only(bottom: 12),
               child: Text(
                 modelList[index].getTitle(),
-                style: TextStyle(fontFamily: 'Pacifico',fontSize: 42,color: Colors.white54,fontWeight: FontWeight.w900),
+                style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    fontSize: 42,
+                    color: Colors.white54,
+                    fontWeight: FontWeight.w900),
               ),
             ),
             subtitle: Text(
               modelList[index].getDesc(),
-              style: TextStyle(color: Colors.white70,fontSize: 18),
+              style: TextStyle(color: Colors.white70, fontSize: 18),
             ),
             onTap: () => Navigator.push(
                 context,
@@ -120,20 +126,19 @@ class _HomeState extends State<Home> {
 
   drawerWidget() {
     return Container(
-      width: MediaQuery.of(context).size.width*0.6,
+      width: MediaQuery.of(context).size.width * 0.6,
       child: Drawer(
-
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/forDrawerHeader.png"),
-                    fit: BoxFit.contain,
-                  ),
-                    color: Colors.orange
-                ),
-                accountName: null, accountEmail: null),
+                    image: DecorationImage(
+                      image: AssetImage("assets/forDrawerHeader.png"),
+                      fit: BoxFit.contain,
+                    ),
+                    color: Colors.orange),
+                accountName: null,
+                accountEmail: null),
             ListTile(
               title: Text('Home'),
               leading: Icon(Icons.home),
@@ -142,21 +147,24 @@ class _HomeState extends State<Home> {
               title: Text('Feedback'),
               leading: Icon(Icons.mail),
               onTap: () {
-                launch("https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
+                launch(
+                    "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
               },
             ),
             ListTile(
               title: Text('Rate Us'),
               leading: Icon(Icons.star),
               onTap: () {
-                launch("https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
+                launch(
+                    "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
               },
             ),
             ListTile(
               title: Text('Share'),
               leading: Icon(Icons.share),
               onTap: () {
-                Share.share('Hey Check Out This Flutter Learning Resource it includes flutter widgets code snippents along with there implementations https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate');
+                Share.share(
+                    'Hey Check Out This Flutter Learning Resource it includes flutter widgets code snippents along with there implementations https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate');
               },
             ),
             Divider(),
@@ -165,8 +173,9 @@ class _HomeState extends State<Home> {
                 title: Text('About & Collaborators'),
                 leading: Icon(Icons.supervisor_account),
               ),
-              onTap: (){
-                Navigator.push(context, CupertinoPageRoute(builder: (context) => AboutUs()));
+              onTap: () {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => AboutUs()));
               },
             ),
             Divider(),
