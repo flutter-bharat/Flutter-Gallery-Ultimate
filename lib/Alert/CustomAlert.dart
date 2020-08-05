@@ -33,6 +33,8 @@ class CustomAlert extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
+        centerTitle: true,
         title: Text('Custom Alert'),
       ),
       body: Center(

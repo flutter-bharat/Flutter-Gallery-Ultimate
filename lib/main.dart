@@ -1,15 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_ultimate/CustomAlert.dart';
-import 'package:flutter_gallery_ultimate/CustomBottomNavigation.dart';
-import 'package:flutter_gallery_ultimate/CustomCard.dart';
-import 'package:flutter_gallery_ultimate/CustomDrawer.dart';
-import 'package:flutter_gallery_ultimate/CustomScrollViewFile.dart';
-import 'package:flutter_gallery_ultimate/CustomSnackBar.dart';
-import 'package:flutter_gallery_ultimate/customAppBar.dart';
-import 'package:flutter_gallery_ultimate/CustomList.dart';
-import 'package:flutter_gallery_ultimate/CustomTabbar.dart';
-import 'package:flutter_gallery_ultimate/httpreq.dart';
-
+import 'package:flutter_gallery_ultimate/about.dart';
+import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +13,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+
+          backgroundColor: Colors.blueGrey, primarySwatch: Colors.red),
+          appBarTheme: AppBarTheme(
+
+              color: Colors.grey),
+          backgroundColor: Colors.blueGrey,
+          primarySwatch: Colors.blue),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: 'home',
+      routes: {
+        'home': (context) => MyHomePage(),
+      }
     );
   }
 }
@@ -36,27 +40,128 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  FSBStatus drawerStatus;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffe4e3e3),
       appBar: AppBar(
+
+        centerTitle: true,
+        leading: Container(),
+        backgroundColor: Colors.orange,
         title: Text('Flutter Gallery'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAppbar())), child: Text('Appbar ')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomTabbar())), child: Text('Tab bar ')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomerDrawer())), child: Text('Drawer ')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> HttpScreen())), child: Text('HTTP')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomAlert())), child: Text('Alert')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomList())), child: Text('CustomList')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomSnackBar())), child: Text('CustomSnackbar')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomBottomNavigation())), child: Text('Bottom Navigation')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomCard())), child: Text('Custom Card')),
-            FlatButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomScrollViewFile())), child: Text('Custom Scroll View')),
+      body: ListView.builder(
+        itemCount: modelList.length,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+            padding: EdgeInsets.symmetric(vertical: 4),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+                gradient: gradientList[index % gradientList.length]),
+            child: ListTile(
+              title: Text(
+                modelList[index].getTitle(),
+                style: TextStyle(fontFamily: 'Pacifico'),
+              ),
+              subtitle: Text(modelList[index].getDesc()),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => modelList[index].getWidget())),
+              trailing: CircleAvatar(
+                maxRadius: 30,
+                backgroundColor: Colors.white,
+              ),
+        backgroundColor: Color(0xffe4e3e3),
+        appBar: AppBar(
+          leading: IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                setState(() {
+                  drawerStatus = drawerStatus == FSBStatus.FSB_OPEN
+                      ? FSBStatus.FSB_CLOSE
+                      : FSBStatus.FSB_OPEN;
+                });
+              }),
+          centerTitle: true,
+          backgroundColor: Colors.orange,
+          title: Text('Flutter Gallery'),
+        ),
+        body: FoldableSidebarBuilder(
+            status: drawerStatus,
+            drawer: drawerWidget(),
+            screenContents: bodyWidget()));
+  }
 
+  bodyWidget() {
+    return ListView.builder(
+      itemCount: modelList.length,
+      itemBuilder: (context, index) {
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+          padding: EdgeInsets.symmetric(vertical: 4),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              gradient: gradientList[index % gradientList.length]),
+          child: ListTile(
+            title: Text(
+              modelList[index].getTitle(),
+              style: TextStyle(fontFamily: 'Pacifico'),
+            ),
+            subtitle: Text(modelList[index].getDesc()),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => modelList[index].getWidget())),
+          ),
+        );
+      },
+    );
+  }
+
+  drawerWidget() {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.6,
+      child: Drawer(
+
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.orange
+                ),
+                accountName: null, accountEmail: null),
+            ListTile(
+              title: Text('Home'),
+              leading: Icon(Icons.home),
+            ),
+            ListTile(
+              title: Text('Feedback'),
+              leading: Icon(Icons.mail),
+            ),
+            ListTile(
+              title: Text('Rate Us'),
+              leading: Icon(Icons.star),
+            ),
+            ListTile(
+              title: Text('Share'),
+              leading: Icon(Icons.share),
+            ),
+            Divider(),
+            GestureDetector(
+              child: ListTile(
+                title: Text('Team'),
+                leading: Icon(Icons.supervisor_account),
+              ),
+              onTap: (){
+                Navigator.push(context, CupertinoPageRoute(builder: (context) => AboutUs()));
+              },
+            ),
+            Divider(),
           ],
         ),
       ),
