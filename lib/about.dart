@@ -1,156 +1,252 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gallery_ultimate/AboutUs1.dart';
-import 'package:flutter_gallery_ultimate/AboutUs2.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
 class AboutUs extends StatefulWidget {
-
   @override
   _AboutUsState createState() => _AboutUsState();
 }
 
 class _AboutUsState extends State<AboutUs> {
-
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Container(),
+        title: Text("About & Collaborators"),
+        backgroundColor: Colors.orange,
         centerTitle: true,
-        title: Text("Team"),
+        elevation: 0.0,
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          Hero(
-            tag: 'gurkaran',
-            child: Center(child: CircleAvatar(
-              maxRadius: 70,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(70),
-                child: Image(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                      'assets/gurkaran.jpg'),
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Center(
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    "assets/web_hi_res_512.png",
+                    width: MediaQuery.of(context).size.width / 2,
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    "Let's Learn Flutter",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "Version 1.0.0",
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 52, right: 52),
+                    child: Divider(),
+                  ),
+                  Text(
+                    "Bought To You By",
+                    style: TextStyle(fontSize: 14, color: Colors.black38),
+                  ),
+                  FlatButton(
+                    child: Text(
+                      "Grevity.in",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                    onPressed: () {
+                      launch("https://grevity.in");
+                    },
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 52, right: 52),
+                    child: Divider(),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 32,right: 32),
+                    child: Text(
+                      "👋 This is an Open Source Project which allows everyone to learn flutter along with its implementation, you can also learn from the source code of this project. Please feel free to contribute in this project let's make this app one of the best learning resources of flutter! Enjoy Learning!",
+                      style: TextStyle(fontSize: 17, color: Colors.blueGrey),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  FlatButton(
+                    child: Text(
+                      "Open Repository",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                    onPressed: () {
+                      launch("https://github.com/grevity/Flutter-Gallery-Ultimate");
+                    },
+                  ),
+                  SizedBox(
+                    height: 56,
+                  ),
+                  Text(
+                    "🏅Top Collaborators🏅",
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 32,right: 32),
+                    child: Text(
+                      "Top Collaborators of this project will be listed here. Listing of Collaborators will be decided according to the repository's Insights",
+                      style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 14),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  CollaboratersGrid(),
+                ],
               ),
-            )),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+//that below widget will be converted into a grid in future on increasing of
+//collaboraters...
+class CollaboratersGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(12),
+          child: InkWell(
+            child: CircleAvatar(
+              radius: MediaQuery.of(context).size.width / 8.4,
+              backgroundImage: AssetImage("assets/gurkaran.jpg"),
+            ),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => CollaboratorAboutDialog(
+                  image: "assets/gurkaran.jpg",
+                  name: "Gurkaran Singh",
+                  special: "Founder, CEO of Grevity",
+                  github: "https://github.com/TheStarkster",
+                  linkedIn: "https://www.linkedin.com/in/sgurkaran/",
+                  insta: "https://www.instagram.com/software.wale.bhaiya/",
+                )
+              );
+            },
           ),
-          SizedBox(height: 10),
-          Text("Gurkaran Singh",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w600)),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Text("          A material stepper widget that displays progress through a sequence of steps. Steppers are particularly useful in the case of forms where one step requires "
-                "the completion of another one, or where multiple steps need to be completed in order to submit"
-                " the whole form.The widget is a flexible wrapper. A parent class should pass currentStep to this widget based on some logic triggered by the"
-                " three callbacks that it provides."),
+        ),
+        Padding(
+          padding: EdgeInsets.all(12),
+          child: InkWell(
+            child: CircleAvatar(
+              radius: MediaQuery.of(context).size.width / 8.4,
+              backgroundImage: AssetImage("assets/prince.jpg"),
+            ),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => CollaboratorAboutDialog(
+                    image: "assets/prince.jpg",
+                    name: "Prince Bansal",
+                    github: "https://github.com/BenzeeIMF",
+                    linkedIn: "https://www.linkedin.com/in/prince-bansal-b295bb17b/",
+                    insta: "https://www.instagram.com/pseprince/",
+                  )
+              );
+            },
           ),
-          SizedBox(height: 30),
+        ),
+        Padding(
+          padding: EdgeInsets.all(12),
+          child: InkWell(
+            child: CircleAvatar(
+              radius: MediaQuery.of(context).size.width / 8.4,
+              backgroundImage: AssetImage("assets/ruchin.jpg"),
+            ),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => CollaboratorAboutDialog(
+                    image: "assets/ruchin.jpg",
+                    name: "Ruchin Shinde",
+                    github: "https://github.com/Ruchin2406",
+                    linkedIn: "https://www.linkedin.com/in/ruchin-shinde-b76262154/",
+                    insta: "https://www.instagram.com/ruchin_24699/",
+                  )
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CollaboratorAboutDialog extends StatelessWidget {
+  final String image,name,linkedIn,insta,github,special;
+  CollaboratorAboutDialog({this.name,this.linkedIn,this.insta,this.github,this.special,this.image});
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          CircleAvatar(
+            radius: MediaQuery.of(context).size.width / 6.4,
+            backgroundImage: AssetImage(image),
+          ),
+          SizedBox(height: 12,),
+          Text(
+            name,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold),
+          ),
+          special != null ?
+          Text(
+            special,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16,color: Colors.black54),
+          ):
+              Container(),
+          SizedBox(height: 14,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  GestureDetector(
-                    onTap: () async{
-                      const url = "https://www.instagram.com/software.wale.bhaiya/?igshid=1nc0byahk2ztb";
-                      if(await canLaunch(url)){
-                        await launch(url);
-                      }
-                      else{
-                        throw 'Could not lanch $url';
-                      }
-                    },
-                      child: SvgPicture.asset("assets/instagram.svg",width: 30,height: 25,)),
-                  SizedBox(height: 10),
-                  Text("Intagram",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),),
-                ],
-              ),
-              SizedBox(width: 30),
-              Column(
-                children: [
-                  GestureDetector(
-                      onTap: () async{
-                        const url = "https://www.instagram.com/software.wale.bhaiya/?igshid=1nc0byahk2ztb";
-                        if(await canLaunch(url)){
-                          await launch(url);
-                        }
-                        else{
-                          throw 'Could not lanch $url';
-                        }
-                      },
-                      child: SvgPicture.asset("assets/linkedin.svg",width: 30,height: 25,)),
-                  SizedBox(height: 10),
-                  Text("LinkedIn",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14)),
-                ],
-              ),
+            children: <Widget>[
+              github != null ?
+              IconButton(icon: Icon(FontAwesomeIcons.github),
+                onPressed: () {
+                  launch(github);
+                },
+              ):Container(),
+              linkedIn != null ?
+              IconButton(icon: Icon(FontAwesomeIcons.linkedinIn),
+                onPressed: () {
+                  launch(linkedIn);
+                },
+              ):Container(),
+              insta != null ?
+              IconButton(icon: Icon(FontAwesomeIcons.instagram),
+                onPressed: () {
+                  launch(insta);
+                },
+              ):Container(),
             ],
-          ),
-          SizedBox(height: 70),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Hero(
-                  tag: 'ruchin',
-                  child: GestureDetector(
-                    child: CircleAvatar(
-                      maxRadius: 30,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(70),
-                        child: Image(
-                          fit: BoxFit.fill,
-                          image: AssetImage(
-                              'assets/ruchin.jpg'),
-                        ),
-                      ),
-                    ),
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs1()));
-                      if(Navigator.canPop(context)){
-                        Navigator.popUntil(context, ModalRoute.withName('home'));
-                      }
-                      //Navigator.pop(context, true);
-                    },
-                  ),
-                ),
-                SizedBox(width: 20),
-                Hero(
-                  tag: 'prince',
-                  child: GestureDetector(
-                    child: CircleAvatar(
-                      maxRadius: 30,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(70),
-                        child: Image(
-                          fit: BoxFit.fill,
-                          image: AssetImage(
-                              'assets/prince.jpg'),
-                        ),
-                      ),
-                    ),
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs2()));
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Spacer(),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal:18.0),
-            height: 25.0,
-            width: MediaQuery.of(context).size.width,
-            child: Text("copyright 2020 All rights reserved | Made by Ruchin Shinde and Prince",style: TextStyle(fontSize: 12),),
-          ),
+          )
         ],
       ),
     );
