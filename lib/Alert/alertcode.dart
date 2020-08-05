@@ -84,7 +84,6 @@ class CustomAlert extends StatelessWidget {
         ),
         centerTitle: true,
         leading: Container(),
-
       ),
       body: ListView(
         children: [

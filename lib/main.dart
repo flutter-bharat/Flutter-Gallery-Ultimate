@@ -14,7 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+
           backgroundColor: Colors.blueGrey, primarySwatch: Colors.red),
+          appBarTheme: AppBarTheme(
+
+              color: Colors.grey),
+          backgroundColor: Colors.blueGrey,
+          primarySwatch: Colors.blue),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       initialRoute: 'home',
       routes: {
@@ -34,6 +40,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  FSBStatus drawerStatus;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,14 +76,65 @@ class _MyHomePageState extends State<MyHomePage> {
                 maxRadius: 30,
                 backgroundColor: Colors.white,
               ),
+        backgroundColor: Color(0xffe4e3e3),
+        appBar: AppBar(
+          leading: IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                setState(() {
+                  drawerStatus = drawerStatus == FSBStatus.FSB_OPEN
+                      ? FSBStatus.FSB_CLOSE
+                      : FSBStatus.FSB_OPEN;
+                });
+              }),
+          centerTitle: true,
+          backgroundColor: Colors.orange,
+          title: Text('Flutter Gallery'),
+        ),
+        body: FoldableSidebarBuilder(
+            status: drawerStatus,
+            drawer: drawerWidget(),
+            screenContents: bodyWidget()));
+  }
+
+  bodyWidget() {
+    return ListView.builder(
+      itemCount: modelList.length,
+      itemBuilder: (context, index) {
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+          padding: EdgeInsets.symmetric(vertical: 4),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              gradient: gradientList[index % gradientList.length]),
+          child: ListTile(
+            title: Text(
+              modelList[index].getTitle(),
+              style: TextStyle(fontFamily: 'Pacifico'),
             ),
-          );
-        },
-      ),
-      endDrawer: Drawer(
+            subtitle: Text(modelList[index].getDesc()),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => modelList[index].getWidget())),
+          ),
+        );
+      },
+    );
+  }
+
+  drawerWidget() {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.6,
+      child: Drawer(
+
         child: ListView(
           children: [
-            UserAccountsDrawerHeader(accountName: null, accountEmail: null),
+            UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.orange
+                ),
+                accountName: null, accountEmail: null),
             ListTile(
               title: Text('Home'),
               leading: Icon(Icons.home),
