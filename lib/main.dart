@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_ultimate/ListModelTest.dart';
 import 'package:flutter_gallery_ultimate/about.dart';
 import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
 import 'package:foldable_sidebar/foldable_sidebar.dart';
@@ -18,7 +19,10 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          backgroundColor: Colors.blueGrey, primarySwatch: Colors.red),
+        backgroundColor: Colors.blueGrey,
+        primarySwatch: Colors.red,
+
+      ),
       home: SplashScreen(),
     );
   }
@@ -61,63 +65,246 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  int currentIndex = 0;
+  TabController tabBarController;
+  List<WidgetModel> _list;
+  @override
+  void initState() {
+    super.initState();
+    tabBarController =
+        new TabController(initialIndex: currentIndex, length: 2, vsync: this);
+    _list = modelList;
+  }
+
+  @override
+  void dispose() {
+    tabBarController.dispose();
+    super.dispose();
+  }
+
   FSBStatus drawerStatus;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffe4e3e3),
-        appBar: AppBar(
-          elevation: 0.0,
-          leading: IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {
-                setState(() {
-                  drawerStatus = drawerStatus == FSBStatus.FSB_OPEN
-                      ? FSBStatus.FSB_CLOSE
-                      : FSBStatus.FSB_OPEN;
-                });
-              }),
-          centerTitle: true,
-          backgroundColor: Colors.orange,
-          title: Text("Let's Learn Flutter"),
+      backgroundColor: Colors.orange,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 250.0,
+            floating: false,
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.pin,
+              centerTitle: true,
+              background: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 56,
+                  ),
+                  Text(
+                    "Let's Learn Flutter",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    "Learning Flutter made Easy!",
+                    style: TextStyle(
+                      color: Colors.white60,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: 32, right: 32, bottom: 32),
+                          child: Container(
+                            height: 48,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 5),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                SizedBox(width: 20,),
+                                Icon(
+                                  Icons.search,
+                                  color: Colors.black54,
+                                ),
+                                Expanded(
+                                  child: TextField(
+                                    style: TextStyle(fontSize: 19),
+                                    cursorColor: Colors.orange,
+                                    onChanged: (change) {
+                                      setState(() {
+                                        _list = modelList.where((e) => e.getTitle().toLowerCase().contains(change.toLowerCase())).toList();
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.only(left: 16),
+                                      hintText: "Search Widget",
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      hintStyle: TextStyle(
+                                        color: Colors.black26,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              DecoratedTabBar(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.white30,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                tabBar: TabBar(
+                  controller: tabBarController,
+                  indicatorColor: Colors.white,
+                  tabs: [
+                    Tab(
+                      child: Text(
+                        "Material",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Tab(
+                      child: Text(
+                        "Cupertino",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ]),
+          ),
+          SliverFillRemaining(
+            child: TabBarView(
+              controller: tabBarController,
+              children: [bodyWidget(), Container()],
+            ),
+          )
+        ],
+      ),
+      drawer: Drawer(
+       elevation: 0,
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+
+              child: Text('Drawer Header'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('Item 1'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
         ),
-        body: FoldableSidebarBuilder(
-            status: drawerStatus,
-            drawer: drawerWidget(),
-            screenContents: bodyWidget()));
+      ),
+//      body: FoldableSidebarBuilder(
+//        status: drawerStatus,
+//        drawer: drawerWidget(),
+//        screenContents: bodyWidget(),
+//      ),
+    );
   }
 
   bodyWidget() {
     return ListView.builder(
-      itemCount: modelList.length,
+      itemCount: _list.length,
       itemBuilder: (context, index) {
         return Container(
           margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
           padding: EdgeInsets.symmetric(vertical: 4),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              gradient: gradientList[index % gradientList.length]),
+            borderRadius: BorderRadius.circular(6),
+            color: Colors.black12,
+          ),
           child: ListTile(
+            trailing: Icon(
+              Icons.chevron_right,
+              color: Colors.white,
+            ),
             title: Padding(
               padding: EdgeInsets.only(bottom: 12),
               child: Text(
-                modelList[index].getTitle(),
+                _list[index].getTitle(),
                 style: TextStyle(
                     fontFamily: 'Pacifico',
                     fontSize: 42,
-                    color: Colors.white54,
+                    color: Colors.white70,
                     fontWeight: FontWeight.w900),
               ),
             ),
             subtitle: Text(
-              modelList[index].getDesc(),
+              _list[index].getDesc(),
               style: TextStyle(color: Colors.white70, fontSize: 18),
             ),
             onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => modelList[index].getWidget())),
+                    builder: (context) => _list[index].getWidget())),
           ),
         );
       },
@@ -182,6 +369,26 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class DecoratedTabBar extends StatelessWidget implements PreferredSizeWidget {
+  DecoratedTabBar({@required this.tabBar, @required this.decoration});
+
+  final TabBar tabBar;
+  final BoxDecoration decoration;
+
+  @override
+  Size get preferredSize => tabBar.preferredSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned.fill(child: Container(decoration: decoration)),
+        tabBar,
+      ],
     );
   }
 }
