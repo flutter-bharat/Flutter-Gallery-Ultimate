@@ -49,7 +49,7 @@ class WidgetModel {
     _widget = widget;
   }
 
-  getTitle(){
+  String getTitle(){
     return this._title;
   }
   getDesc(){
