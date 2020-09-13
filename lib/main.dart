@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gallery_ultimate/ListModelTest.dart';
 import 'package:flutter_gallery_ultimate/about.dart';
 import 'package:flutter_gallery_ultimate/utils/DataFile.dart';
-import 'package:foldable_sidebar/foldable_sidebar.dart';
+// import 'package:foldable_sidebar/foldable_sidebar.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  FSBStatus drawerStatus;
+  // FSBStatus drawerStatus;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -232,41 +232,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           )
         ],
       ),
-      drawer: Drawer(
-       elevation: 0,
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-
-              child: Text('Drawer Header'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),
-//      body: FoldableSidebarBuilder(
-//        status: drawerStatus,
-//        drawer: drawerWidget(),
-//        screenContents: bodyWidget(),
-//      ),
+      drawer: drawerWidget(),
     );
   }
 
@@ -312,62 +278,60 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   drawerWidget() {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.6,
-      child: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/forDrawerHeader.png"),
-                      fit: BoxFit.contain,
-                    ),
-                    color: Colors.orange),
-                accountName: null,
-                accountEmail: null),
-            ListTile(
-              title: Text('Home'),
-              leading: Icon(Icons.home),
+    return Drawer(
+      child: ListView(
+        padding: const EdgeInsets.all(0.0),
+        children: [
+          UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/forDrawerHeader.png"),
+                    fit: BoxFit.contain,
+                  ),
+                  color: Colors.orange),
+              accountName: null,
+              accountEmail: null),
+          ListTile(
+            title: Text('Home'),
+            leading: Icon(Icons.home),
+          ),
+          ListTile(
+            title: Text('Feedback'),
+            leading: Icon(Icons.mail),
+            onTap: () {
+              launch(
+                  "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
+            },
+          ),
+          ListTile(
+            title: Text('Rate Us'),
+            leading: Icon(Icons.star),
+            onTap: () {
+              launch(
+                  "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
+            },
+          ),
+          ListTile(
+            title: Text('Share'),
+            leading: Icon(Icons.share),
+            onTap: () {
+              Share.share(
+                  'Hey Check Out This Flutter Learning Resource it includes flutter widgets code snippents along with there implementations https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate');
+            },
+          ),
+          Divider(),
+          GestureDetector(
+            child: ListTile(
+              title: Text('About & Collaborators'),
+              leading: Icon(Icons.supervisor_account),
             ),
-            ListTile(
-              title: Text('Feedback'),
-              leading: Icon(Icons.mail),
-              onTap: () {
-                launch(
-                    "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
-              },
-            ),
-            ListTile(
-              title: Text('Rate Us'),
-              leading: Icon(Icons.star),
-              onTap: () {
-                launch(
-                    "https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate");
-              },
-            ),
-            ListTile(
-              title: Text('Share'),
-              leading: Icon(Icons.share),
-              onTap: () {
-                Share.share(
-                    'Hey Check Out This Flutter Learning Resource it includes flutter widgets code snippents along with there implementations https://play.google.com/store/apps/details?id=com.grevity.flutter_gallery_ultimate');
-              },
-            ),
-            Divider(),
-            GestureDetector(
-              child: ListTile(
-                title: Text('About & Collaborators'),
-                leading: Icon(Icons.supervisor_account),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    CupertinoPageRoute(builder: (context) => AboutUs()));
-              },
-            ),
-            Divider(),
-          ],
-        ),
+            onTap: () {
+              Navigator.push(context,
+                  CupertinoPageRoute(builder: (context) => AboutUs()));
+            },
+          ),
+          Divider(),
+        ],
       ),
     );
   }

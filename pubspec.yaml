@@ -16,7 +16,7 @@ dependencies:
   flutter_highlight: ^0.6.0
   flutter_svg: ^0.17.4
   url_launcher: ^5.5.0
-  foldable_sidebar: ^1.0.0
+#  foldable_sidebar: ^1.0.0
   flare_flutter: ^2.0.5
   font_awesome_flutter: ^8.8.1
   share: ^0.6.4+3
